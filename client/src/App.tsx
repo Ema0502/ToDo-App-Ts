@@ -24,9 +24,18 @@ const App = ():  JSX.Element => {
 
   const [todos, setTodos] = useState(mokTodos);
 
+  const handRemove = (id:  number) : void =>{
+    // filter out the todo with the given ID
+    const newTodos = todos.filter((todo) =>  todo.id !== id )
+    setTodos(newTodos)
+  }
+
   return (
     <div className="todoapp">
-      <Todos todos={todos}></Todos>
+      <Todos 
+      todos={todos}
+      onRemoveTodo={handRemove}
+      />
     </div>
   )
 }

@@ -1,0 +1,2 @@
+
+export type ListOfTodos = Todo[];

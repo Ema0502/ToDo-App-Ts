@@ -34,6 +34,7 @@ module.exports = {
         "@typescript-eslint/no-unused-vars": ["warn"],
         "import/order": ["error", {"newlines-between": "always"}],
         // Disable rules that conflict with prettier
-        "quotes": ["error", "single"]
+        "quotes": ["error", "single"],
+        "react/prop-types": "off"
     }
 }

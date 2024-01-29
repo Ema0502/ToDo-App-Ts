@@ -25,9 +25,9 @@ const App = ():  JSX.Element => {
   const [todos, setTodos] = useState(mokTodos);
 
   return (
-    <>
+    <div className="todoapp">
       <Todos todos={todos}></Todos>
-    </>
+    </div>
   )
 }
 

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import { Todos } from  './components/Todos/Todos'
+import { type ITodo as TodoType } from './interfaces/interfaces';
 
 const App = ():  JSX.Element => {
 
@@ -30,9 +31,23 @@ const App = ():  JSX.Element => {
     setTodos(newTodos)
   }
 
+  const handleCompleted = ({ id, completed }: Pick<TodoType, "id" | "completed">): void => {
+    const newTodos = todos.map((todo) => {
+      if (todo.id === id){
+        return  {
+          ...todo, 
+          completed
+        };
+      }
+        return todo;
+    })
+    setTodos(newTodos);
+  }
+
   return (
     <div className="todoapp">
       <Todos 
+      onToggleCompleteTodo={handleCompleted}
       todos={todos}
       onRemoveTodo={handRemove}
       />

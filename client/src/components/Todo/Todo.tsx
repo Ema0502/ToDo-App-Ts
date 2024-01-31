@@ -24,7 +24,6 @@ export const Todo: React.FC<Props> = ({ id, title, completed, onRemoveTodo, onTo
         onChange={handleChangeCheckBox}
         />
         <label htmlFor="">
-          {id} - 
           {title}
         </label>
         <button 

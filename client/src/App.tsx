@@ -3,8 +3,9 @@ import './App.css'
 import { Todos } from  './components/Todos/Todos'
 import { type ITodo as TodoType } from './interfaces/interfaces';
 import { TODO_FILTERS } from './consts';
-import { FilterValue } from './types/types';
+import { FilterValue, TodoTitle } from './types/types';
 import { Footer } from './components/Footer/Footer';
+import { Header } from './components/Header/Header';
 
 const App = ():  JSX.Element => {
 
@@ -65,8 +66,19 @@ const App = ():  JSX.Element => {
     setTodos(newTodos);
   }
 
+  const handleAddTodo = ({title}: TodoTitle): void => {
+    const newTodo = {
+      title,
+      id: parseInt(crypto.randomUUID()),
+      completed: false
+    }
+    const newTodos = [...todos, newTodo]
+    setTodos(newTodos)
+  }
+
   return (
     <div className="todoapp">
+      <Header onAddTodo={handleAddTodo} />
       <Todos 
       onToggleCompleteTodo={handleCompleted}
       todos={filteredTodos}
